@@ -33,6 +33,16 @@ public class _Stream {
                 .mapToInt(String::length)
                 .forEach(System.out::println);
 
+        // all matching
+
+        people.stream()
+                .allMatch(person -> FEMALE.equals(person.gender));
+        // any matching
+
+        people.stream()
+                .anyMatch(person -> FEMALE.equals(person.gender));
+
+
 
     }
 
