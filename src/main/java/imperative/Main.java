@@ -13,7 +13,7 @@ public class Main {
     public static void main(String[] args) {
 
         List<Person> people = Arrays.asList(
-            new Person ("Makanaka",FEMALE),
+            new Person ("Makanakaishe",FEMALE),
                 new Person ("Matatendeka",MALE),
                 new Person ("Alex",MALE),
                 new Person ("Fadzai",FEMALE),
@@ -26,17 +26,15 @@ public class Main {
         // Imperative approach
         System.out.println("Declarative approach !!! ");
 
-        List<Person> females= new ArrayList<Person>();
+        List<Person> females_imperative= new ArrayList<>();
 
         for( Person p : people){
-
             if(FEMALE.equals(p.gender)){
-                females.add(p);
+                females_imperative.add(p);
             }
         }
 
-        for( Person f : females){
-
+        for( Person f : females_imperative){
             System.out.println(f);
         }
 
@@ -48,14 +46,14 @@ public class Main {
 //                .collect(Collectors.toList())
 //                .forEach(System.out::println);
 
-     List<Person> females1=  people.stream()
-                .filter(p ->FEMALE.equals(p.gender))
-                .collect(Collectors.toList());
+         List<Person> females_declarative=  people.stream()
+                    .filter(p ->FEMALE.equals(p.gender))
+                    .collect(Collectors.toList());
 
-        females1.forEach(System.out::println);
+        females_declarative.forEach(System.out::println);
 
 
-    }
+        }
 
     static class Person{
         private final String name;
